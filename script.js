@@ -2,16 +2,56 @@
 document.addEventListener("DOMContentLoaded", function () {
     const navToggle = document.querySelector(".nav-toggle");
     const navLinks = document.querySelector(".nav-links");
+    const header = document.querySelector("header");
 
-    if (!navToggle || !navLinks) {
+    if (!navToggle || !navLinks || !header) {
         console.error("Navigation elements not found!");
         return;
     }
 
     navToggle.addEventListener("click", function () {
-        navLinks.classList.toggle("active");
+        navLinks.style.display = navLinks.style.display === "flex" ? "none" : "flex";
     });
+
+    window.addEventListener("resize", function () {
+        if (window.innerWidth <= 768) {
+            navToggle.style.display = "block";
+            navLinks.style.display = "none";
+        } else {
+            navToggle.style.display = "none";
+            navLinks.style.display = "flex";
+            navLinks.style.justifyContent = "flex-end";
+            navLinks.style.marginLeft = "auto";
+        }
+    });
+    
+    window.dispatchEvent(new Event("resize"));
 });
+
+
+
+
+
+
+    // Ensure the hamburger menu appears at the correct position
+//     function adjustNavTogglePosition() {
+//         if (window.innerWidth <= 768) {
+//             navToggle.style.position = "absolute";
+//             navToggle.style.top = "15px";
+//             navToggle.style.right = "20px";
+//             navToggle.style.zIndex = "1001";
+//         } else {
+//             navToggle.style.position = "fixed";
+//             navToggle.style.top = "15px";
+//             navToggle.style.right = "20px";
+//             navToggle.style.zIndex = "1001";
+//         }
+//     }
+
+//     window.addEventListener("resize", adjustNavTogglePosition);
+//     adjustNavTogglePosition();
+// ;
+
 
     // Fade-in effect for hero section
     const heroSection = document.querySelector(".hero");
