@@ -1,9 +1,9 @@
 /* PhiliaTek Website Styles */
 
 :root {
-    --primary-color: #2E1A66;
-    --accent-color: #C020F0;
-    --text-color: #ffffff;
+    --primary-color: #2E1A66; /* Dark Purple */
+    --accent-color: #C020F0; /* Bright Purple */
+    --text-color: #ffffff; /* White */
     --background-color: #f5f5f5;
     --nav-background: #25174D;
     --footer-background: #1A1133;
@@ -15,8 +15,6 @@ body {
     padding: 0;
     background: var(--background-color);
     color: var(--primary-color);
-    overflow-x: hidden;
-    width: 100vw;
 }
 
 /* Header & Navigation */
@@ -40,20 +38,18 @@ header {
     font-weight: bold;
 }
 
-.nav-links {
+nav ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
-    margin-left: auto;
-    padding-right: 20px;
 }
 
-
-.nav-links li {
+nav ul li {
     margin: 0 15px;
-    white-space: nowrap;
 }
 
-.nav-links a {
+nav ul li a {
     color: var(--text-color);
     text-decoration: none;
     font-size: 16px;
@@ -61,42 +57,8 @@ header {
     transition: color 0.3s;
 }
 
-.nav-links a:hover {
+nav ul li a:hover {
     color: var(--accent-color);
-}
-
-.nav-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--text-color);
-    font-size: 24px;
-    cursor: pointer;
-}
-
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        background: var(--nav-background);
-        padding: 10px 0;
-        text-align: center;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-toggle {
-        display: block;
-        position: fixed;
-        top: 15px;
-        right: 20px;
-    }
 }
 
 /* Hero Section */
@@ -147,6 +109,7 @@ header {
     color: var(--primary-color);
 }
 
+/* Animations */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -158,320 +121,335 @@ header {
     }
 }
 
-/* Sections */
-section {
-    padding: 60px 20px;
+
+/* ABOUT PAGE */
+.about {
     text-align: center;
+    padding: 80px 20px;
+    background: var(--background-color);
+    color: var(--primary-color);
 }
 
-.why-choose-us, .recent-projects, .testimonials {
-    background: white;
-    padding: 50px 20px;
+.about h1, .about h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
 }
 
-.features, .projects {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+.about ul {
+    list-style: none;
+    padding: 0;
 }
 
-.feature, .project {
-    background: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
-}
-
-/* Testimonials */
-.testimonial {
-    background: #f1f1f1;
-    padding: 20px;
-    border-radius: 8px;
+.about ul li {
+    font-size: 18px;
     margin: 10px 0;
 }
 
-/* Contact Section */
-.contact {
-    background: var(--nav-background);
-    color: white;
-    padding: 50px 20px;
+
+/* Services Page */
+.services {
     text-align: center;
-}
-
-.contact a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.contact a:hover {
-    color: var(--accent-color);
-}
-
-/* About Page Styling */
-.about-hero {
-    background: var(--primary-color);
-    color: var(--text-color);
-    text-align: center;
-    padding: 100px 20px;
-}
-
-.mission-vision {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    text-align: center;
-    padding: 50px 20px;
-}
-
-.mission, .vision {
-    background: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-}
-
-/* Team Section */
-.team-members {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    padding: 50px 20px;
-    text-align: center;
-}
-
-.team-member {
-    background: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 250px;
-    text-align: center;
-}
-
-.team-member img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-/* Core Values Section */
-.values {
-    background: white;
-    padding: 50px 20px;
-    text-align: center;
-}
-
-.values-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.value {
-    background: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
-    text-align: center;
-}
-
-
-/* Services Page Styling */
-.services-hero {
-    background: var(--primary-color);
-    color: var(--text-color);
-    text-align: center;
-    padding: 100px 20px;
-}
-
-.services-list {
-    padding: 60px 20px;
-    text-align: center;
-    background: white;
-}
-
-.services-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    padding-top: 20px;
-}
-
-.service {
-    background: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
-    text-align: center;
-}
-
-.service img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-.service h3 {
-    margin-top: 15px;
+    padding: 80px 20px;
+    background: var(--background-color);
     color: var(--primary-color);
 }
 
-.service p {
-    font-size: 14px;
-    color: #666;
-}
-
-/* Portfolio Page Styling */
-.portfolio-hero {
-    background: var(--primary-color);
-    color: var(--text-color);
-    text-align: center;
-    padding: 100px 20px;
-}
-
-.portfolio-list {
-    padding: 60px 20px;
-    text-align: center;
-    background: white;
-}
-
-.portfolio-container {
+.service-list {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    flex-wrap: wrap;
-    padding-top: 20px;
 }
 
-.portfolio-item {
-    background: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
-    text-align: center;
-}
-
-.portfolio-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-.portfolio-item h3 {
-    margin-top: 15px;
-    color: var(--primary-color);
-}
-
-.portfolio-item p {
-    font-size: 14px;
-    color: #666;
-}
-
-/* Contact Page Styling */
-.contact-hero {
-    background: var(--primary-color);
-    color: var(--text-color);
-    text-align: center;
-    padding: 100px 20px;
-}
-
-.contact-form-section {
-    padding: 60px 20px;
-    text-align: center;
-    background: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-
-.contact-form-section form {
-    max-width: 500px;
-    margin: auto;
-    /*width: 95%;*/
+.service-item {
     background: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    /*display: flex;
-    flex-direction: column;*/
-    align-items: center;
+    width: 300px;
+}
+
+/* Portfolio Page */
+.portfolio {
+    text-align: center;
+    padding: 80px 20px;
+    background: var(--background-color);
+    color: var(--primary-color);
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.portfolio-item {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-item img {
+    width: 100%;
+    border-radius: 5px;
 }
 
 
-.contact-form-section label {
+/* Contact Section */
+.contact {
+    text-align: center;
+    padding: 80px 20px;
+    background: var(--background-color);
+    color: var(--primary-color);
+}
+
+.contact h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.contact form {
+    max-width: 500px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact label {
     display: block;
     font-weight: bold;
     margin-top: 10px;
 }
 
-.contact-form-section input, .contact-form-section textarea {
+.contact input, .contact textarea {
     width: 100%;
-    padding: 14px;
-    font-size: 18px;
+    padding: 10px;
     margin-top: 5px;
     border: 1px solid #ccc;
-    border-radius: 8px;
-    box-sizing: border-box;
+    border-radius: 5px;
 }
 
-
-.contact-form-section button {
+.contact button {
     background: var(--accent-color);
     color: var(--text-color);
-    padding: 15px 30px;
+    padding: 10px 20px;
     border: none;
     cursor: pointer;
-    font-size: 20px;
-    border-radius: 8px;
+    font-size: 16px;
+    border-radius: 5px;
     transition: background 0.3s;
     margin-top: 20px;
 }
 
-.contact-form-section button:hover {
-    background: var(--accent-color);
-}
-
-/* Contact Info */
-.contact-info {
-    text-align: center;
-    padding: 40px 20px;
-    background: var(--background-color);
-}
-
-.contact-info h2 {
-    margin-bottom: 10px;
-}
-
-.contact-info p a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.contact-info p a:hover {
-    color: var(--accent-color);
+.contact button:hover {
+    background: var(--primary-color);
+    color: var(--text-color);
 }
 
 /* Footer */
 footer {
     background: var(--footer-background);
-    color: white;
+    color: var(--text-color);
     text-align: center;
     padding: 20px 0;
     margin-top: 30px;
+}
+
+/* Form Validation Styles */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.success-message {
+    color: green;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+}
+
+/* Responsive Contact Form */
+@media (max-width: 600px) {
+    .contact form {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .contact input, .contact textarea {
+        font-size: 14px;
+    }
+}
+
+
+/* RESPONSIVE PORTFOLIO GRID */
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.button-hover {
+    transition: background 0.3s ease-in-out, transform 0.2s;
+}
+
+.button-hover:hover {
+    background: var(--accent-color);
+    transform: scale(1.05);
+}
+
+/* Fix for navigation bar overflow issue */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--background-color);
+    color: var(--primary-color);
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+    width: 100vw; /* Ensures full width */
+}
+
+header {
+    width: 100%;
+    background: var(--nav-background);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+.nav-links li {
+    margin: 0 15px;
+    white-space: nowrap; /* Ensures text doesn't wrap */
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+@media (max-width: 1024px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background: var(--nav-background);
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--text-color);
+        font-size: 24px;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-links {
+        width: 100%;
+    }
+}
+
+/* Fix Hamburger Menu Position */
+.nav-toggle {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+@media (max-width: 768px) {
+    .nav-toggle {
+        position: fixed;
+        top: 15px;
+        right: 20px;
+    }
 }
