@@ -1,4 +1,5 @@
 // Navigation Menu
+
 document.addEventListener("DOMContentLoaded", function () {
     const navToggle = document.querySelector(".nav-toggle");
     const navLinks = document.querySelector(".nav-links");
@@ -10,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     navToggle.addEventListener("click", function () {
-        navLinks.style.display = navLinks.style.display === "flex" ? "none" : "flex";
+        navLinks.classList.toggle("active");
     });
 
     window.addEventListener("resize", function () {
@@ -28,70 +29,48 @@ document.addEventListener("DOMContentLoaded", function () {
     window.dispatchEvent(new Event("resize"));
 });
 
-
-
-
-
-
-    // Ensure the hamburger menu appears at the correct position
-//     function adjustNavTogglePosition() {
-//         if (window.innerWidth <= 768) {
-//             navToggle.style.position = "absolute";
-//             navToggle.style.top = "15px";
-//             navToggle.style.right = "20px";
-//             navToggle.style.zIndex = "1001";
-//         } else {
-//             navToggle.style.position = "fixed";
-//             navToggle.style.top = "15px";
-//             navToggle.style.right = "20px";
-//             navToggle.style.zIndex = "1001";
-//         }
-//     }
-
-//     window.addEventListener("resize", adjustNavTogglePosition);
-//     adjustNavTogglePosition();
-// ;
-
-
-    // Fade-in effect for hero section
+// Hero Section Animation
+document.addEventListener("DOMContentLoaded", function () {
     const heroSection = document.querySelector(".hero");
-    heroSection.style.opacity = 0;
-    heroSection.style.transition = "opacity 1.5s ease-in-out";
-    setTimeout(() => {
-        heroSection.style.opacity = 1;
-    }, 500);
-
-    // Hero Section Animation
+    if (heroSection) {
+        heroSection.style.opacity = 0;
+        heroSection.style.transition = "opacity 1.5s ease-in-out";
+        setTimeout(() => {
+            heroSection.style.opacity = 1;
+        }, 500);
+    }
+    
     const heroHeading = document.querySelector(".hero h1");
     const heroButton = document.querySelector(".hero .btn");
     
-    heroHeading.style.opacity = 0;
-    heroHeading.style.transform = "translateY(-20px)";
-    heroHeading.style.transition = "all 1s ease-in-out";
-    
-    heroButton.style.opacity = 0;
-    heroButton.style.transform = "translateY(20px)";
-    heroButton.style.transition = "all 1s ease-in-out 0.3s";
-    
-    setTimeout(() => {
-        heroHeading.style.opacity = 1;
-        heroHeading.style.transform = "translateY(0)";
-    }, 600);
-    
-    setTimeout(() => {
-        heroButton.style.opacity = 1;
-        heroButton.style.transform = "translateY(0)";
-    }, 900);
+    if (heroHeading && heroButton) {
+        heroHeading.style.opacity = 0;
+        heroHeading.style.transform = "translateY(-20px)";
+        heroHeading.style.transition = "all 1s ease-in-out";
+        
+        heroButton.style.opacity = 0;
+        heroButton.style.transform = "translateY(20px)";
+        heroButton.style.transition = "all 1s ease-in-out 0.3s";
+        
+        setTimeout(() => {
+            heroHeading.style.opacity = 1;
+            heroHeading.style.transform = "translateY(0)";
+        }, 600);
+        
+        setTimeout(() => {
+            heroButton.style.opacity = 1;
+            heroButton.style.transform = "translateY(0)";
+        }, 900);
+    }
+});
 
-
-
-/*Form Validation*/
+// Form Validation
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector(".contact form");
     
     if (form) {
         form.addEventListener("submit", function (e) {
-            e.preventDefault(); // Prevents actual form submission
+            e.preventDefault();
             
             let isValid = true;
             let name = document.getElementById("name");
@@ -100,17 +79,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
             clearErrors();
 
-            if (name.value.trim() === "") {
+            if (name && name.value.trim() === "") {
                 showError(name, "Name is required.");
                 isValid = false;
             }
 
-            if (email.value.trim() === "" || !isValidEmail(email.value)) {
+            if (email && (email.value.trim() === "" || !isValidEmail(email.value))) {
                 showError(email, "Valid email is required.");
                 isValid = false;
             }
 
-            if (message.value.trim() === "") {
+            if (message && message.value.trim() === "") {
                 showError(message, "Message cannot be empty.");
                 isValid = false;
             }
@@ -135,10 +114,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         function isValidEmail(email) {
-            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/;
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
             return emailPattern.test(email.trim());
-        }
-        
         }
 
         function showSuccess(message) {
@@ -150,22 +127,20 @@ document.addEventListener("DOMContentLoaded", function () {
             setTimeout(() => successMsg.remove(), 3000);
         }
     }
-);
+});
 
+// Fade-in Animation
 document.addEventListener("DOMContentLoaded", function () {
-    const sections = document.querySelectorAll(".fade-in");
-    
-    const fadeInOnScroll = () => {
-        sections.forEach(section => {
-            const sectionTop = section.getBoundingClientRect().top;
+    const fadeInElements = document.querySelectorAll(".fade-in");
+    function checkFadeIn() {
+        fadeInElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
             const windowHeight = window.innerHeight;
-            
-            if (sectionTop < windowHeight * 0.85) {
-                section.classList.add("show");
+            if (elementTop < windowHeight * 0.85) {
+                element.classList.add("show");
             }
         });
-    };
-    
-    window.addEventListener("scroll", fadeInOnScroll);
-    fadeInOnScroll(); // Run on page load
+    }
+    window.addEventListener("scroll", checkFadeIn);
+    checkFadeIn();
 });
