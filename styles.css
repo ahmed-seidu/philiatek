@@ -103,13 +103,13 @@ header {
 .hero {
     text-align: center;
     padding: 120px 20px;
-    background: linear-gradient(to right, rgba(46, 26, 102, 0.9), rgba(192, 32, 240, 0.9)), url('hero-bg.jpg') no-repeat center center/cover;
+    background: linear-gradient(to right, rgba(46, 26, 102, 0.9), rgba(192, 32, 240, 0.9)), url('images/hero-1.jpg') no-repeat center center/cover;
     color: var(--text-color);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 60vh;
 }
 
 .hero h1 {
@@ -184,13 +184,84 @@ section {
     max-width: 300px;
 }
 
-/* Testimonials */
-.testimonial {
-    background: #f1f1f1;
-    padding: 20px;
-    border-radius: 8px;
-    margin: 10px 0;
+.project img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
+
+/* Testimonials */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+    text-align: center;
+}
+
+.testimonial-section {
+    max-width: 800px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    position: relative;
+}
+
+.testimonial-container {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    height: 200px;
+}
+
+.testimonial-card {
+    min-width: 100%;
+    transition: transform 0.5s ease-in-out;
+    display: none;
+}
+
+.testimonial-card.active {
+    display: block;
+}
+
+.testimonial-text {
+    font-size: 18px;
+    color: #555;
+}
+
+.testimonial-author {
+    margin-top: 15px;
+}
+
+.testimonial-author img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+
+
 
 /* Contact Section */
 .contact {
@@ -210,6 +281,7 @@ section {
 .contact a:hover {
     color: var(--accent-color);
 }
+
 
 /* About Page Styling */
 .about-hero {
@@ -234,6 +306,7 @@ section {
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     max-width: 400px;
+    margin-bottom: 20px;
 }
 
 /* Team Section */
@@ -262,8 +335,9 @@ section {
     object-fit: cover;
 }
 
+
 /* Core Values Section */
-.values {
+/*.values {
     background: white;
     padding: 50px 20px;
     text-align: center;
@@ -283,8 +357,7 @@ section {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     max-width: 300px;
     text-align: center;
-}
-
+}*/
 
 /* Services Page Styling */
 .services-hero {
@@ -380,14 +453,7 @@ section {
     color: #666;
 }
 
-/* Contact Page Styling */
-.contact-hero {
-    background: var(--primary-color);
-    color: var(--text-color);
-    text-align: center;
-    padding: 100px 20px;
-}
-
+/* Contact Form Styling */
 .contact-form-section {
     padding: 60px 20px;
     text-align: center;
@@ -398,74 +464,75 @@ section {
     flex-direction: column;
 }
 
-
 .contact-form-section form {
-    max-width: 500px;
-    margin: auto;
-    /*width: 95%;*/
+    max-width: 600px;
+    width: 90%;
     background: #fff;
-    padding: 20px;
+    padding: 25px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    /*display: flex;
-    flex-direction: column;*/
-    align-items: center;
+    display: flex;
+    flex-direction: column; /* Ensures fields and button stack properly */
 }
 
-
+/* Input Fields */
 .contact-form-section label {
     display: block;
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: 15px;
+    align-self: flex-start;
 }
 
-.contact-form-section input, .contact-form-section textarea {
+.contact-form-section input,
+.contact-form-section textarea {
     width: 100%;
-    padding: 14px;
-    font-size: 18px;
+    padding: 12px;
+    font-size: 16px;
     margin-top: 5px;
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: 5px;
     box-sizing: border-box;
 }
 
+.contact-form-section textarea {
+    resize: vertical;
+    min-height: 120px;
+}
 
+/* ✅ FIXED Submit Button Placement */
 .contact-form-section button {
-    background: var(--accent-color);
-    color: var(--text-color);
-    padding: 15px 30px;
+    background: #a500f3; /* Ensuring button color is properly defined */
+    color: white;
+    padding: 12px 25px;
     border: none;
     cursor: pointer;
-    font-size: 20px;
-    border-radius: 8px;
-    transition: background 0.3s;
-    margin-top: 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+    margin-top: 20px; /* ✅ Provides space between fields and button */
+    width: 100%;
+    max-width: 250px;
+    align-self: center; /* ✅ Ensures button stays aligned at the bottom */
+    display: block;  /* ✅ Forces button to appear in flow */
 }
 
 .contact-form-section button:hover {
-    background: var(--accent-color);
+    background: #6e00a8;
 }
 
-/* Contact Info */
-.contact-info {
-    text-align: center;
-    padding: 40px 20px;
-    background: var(--background-color);
+/* ✅ Responsive Fix */
+@media (max-width: 768px) {
+    .contact-form-section form {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .contact-form-section input,
+    .contact-form-section textarea {
+        font-size: 14px;
+    }
 }
 
-.contact-info h2 {
-    margin-bottom: 10px;
-}
-
-.contact-info p a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.contact-info p a:hover {
-    color: var(--accent-color);
-}
 
 /* Footer */
 footer {
